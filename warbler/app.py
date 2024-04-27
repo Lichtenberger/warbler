@@ -1,4 +1,4 @@
-import os
+import os, pdb
 
 from flask import Flask, render_template, request, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
@@ -65,7 +65,6 @@ def signup():
     If the there already is a user with that username: flash message
     and re-present form.
     """
-    pdb.set_trace()
 
     form = UserAddForm()
 
@@ -116,6 +115,11 @@ def logout():
     """Handle logout of user."""
 
     # IMPLEMENT THIS
+    form = LoginForm()
+
+    do_logout()
+    flash('Goodbye')
+    return render_template('users/login.html', form=form)
 
 
 ##############################################################################
